@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import { RegisterPage } from '../register/register';
+import { TabsPage } from '../tabs/tabs';
+import { UserServiceProvider } from '../../providers/user-service/user-service';
 
 /**
  * Generated class for the LoginPage page.
@@ -16,11 +18,20 @@ import { RegisterPage } from '../register/register';
   templateUrl: 'login.html',
 })
 export class LoginPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  user={
+    email:"",
+    password: ""
+  }
+  constructor(public navCtrl: NavController, public navParams: NavParams, public userService: UserServiceProvider, private menuCtrl:MenuController) {
+    menuCtrl.enable(false);
   }
   goToPage(){
-    this.navCtrl.setRoot(HomePage);
+    this.userService.login(this.user.email, this.user.password).then((result)=>{
+      if(this.userService.isLoggedIn){
+        //if auth succes, go to home
+        this.navCtrl.setRoot(TabsPage);
+      }
+    })
   }
   goToReg(){
     this.navCtrl.push(RegisterPage);

@@ -6,30 +6,30 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="danger">
     <ion-title>Login</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-    <ion-list>
-
+<ion-content padding class="background">
+        <ion-list>
+            <img src="assets/img/Logo.png" class="center"/>
         <ion-item>
-          <ion-label floating>Username</ion-label>
-          <ion-input type="text"></ion-input>
+          <ion-label floating>Email</ion-label>
+          <ion-input [(ngModel)]="user.email" type="text"></ion-input>
         </ion-item>
       
         <ion-item>
           <ion-label floating>Password</ion-label>
-          <ion-input type="password"></ion-input>
+          <ion-input [(ngModel)]="user.password" type="password"></ion-input>
         </ion-item>
       
       </ion-list>
       
-      <div padding>
-          <button ion-button full (click)="goToPage()">Log in</button>
+      <div padding text-center>
+          <button color="danger" ion-button full (click)="goToPage()">Log in</button>
           <a (click)="goToReg()">Or Create account</a>
       </div>
 

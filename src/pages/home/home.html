@@ -1,13 +1,19 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>Johnny's Pizza</ion-title>
+  <ion-navbar color="danger">
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Locaties</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-    <ion-card>
-        <img src="assets/img/johnny.png"/>
-        <div class="card-title">Johnny's Pizza</div>
-        <div class="card-subtitle">12 pizza's</div>
-      </ion-card>
+    <ion-list inset>
+        <button ion-item *ngFor="let item of stores" (click)=showDetail(item)>
+          {{ item.name }}
+          <ion-icon showWhen="android" name="arrow-forward" item-end class="twitter"></ion-icon>
+        </button> 
+      </ion-list>
+      
 </ion-content>
+

@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { HomePage } from '../home/home';
-import { TabsPage } from '../tabs/tabs';
+import { CartPage } from '../cart/cart';
 
 /**
- * Generated class for the RegisterPage page.
+ * Generated class for the OrderPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -12,19 +11,19 @@ import { TabsPage } from '../tabs/tabs';
 
 @IonicPage()
 @Component({
-  selector: 'page-register',
-  templateUrl: 'register.html',
+  selector: 'page-order',
+  templateUrl: 'order.html',
 })
-export class RegisterPage {
+export class OrderPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
-  goToPage(){
-    this.navCtrl.setRoot(TabsPage);
-  }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad RegisterPage');
+    console.log('ionViewDidLoad OrderPage');
+  }
+  goToCart(){
+    this.navCtrl.push(CartPage);
   }
 
 }
